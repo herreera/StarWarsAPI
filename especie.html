@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles de la Especie</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Detalles de la Especie</h1>
+
+    <div id="speciesDetails"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const speciesId = urlParams.get('id');
+
+        fetch(`https://swapi.dev/api/species/${speciesId}/`)
+            .then(response => response.json())
+            .then(speciesData => {
+                const speciesDetailsContainer = document.getElementById("speciesDetails");
+                speciesDetailsContainer.innerHTML = `
+                    <h2>${speciesData.name}</h2>
+                    <p>Clasificación: ${speciesData.classification}</p>
+                    <p>Designación: ${speciesData.designation}</p>
+                `;
+            })
+            .catch(error => {
+                console.log('Hubo un problema con la solicitud:', error);
+            });
+    </script>
+</body>
+</html>
