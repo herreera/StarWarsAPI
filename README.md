@@ -5,6 +5,7 @@
 ## Authors
 
 - [@herrer499](https://www.github.com/herrer499)
+- [@jacobgalactico](https://github.com/jacobgalactico)
 
 
 ## Demo
